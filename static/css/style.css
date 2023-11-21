@@ -1,0 +1,196 @@
+* {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size:60px;
+    margin-top:15%;
+    letter-spacing:-5px;
+    text-align:center;
+    transition:0.5s;
+    animation:
+        spacing 2s
+}
+
+.greeting {
+    margin-top:2%;
+    opacity:0%;
+    letter-spacing:1px;
+    margin-bottom:0px;
+    animation:
+        fadeIN 4s;
+    animation-fill-mode: forwards;
+}
+
+.name {
+    transition:0s;
+    color:rgb(0, 72, 255);
+    opacity:0%;
+    margin-top:0px;
+    font-size:80px;
+    animation:
+        fadeIN 4s;
+    animation-delay:2s;
+    animation-fill-mode: forwards;
+}
+
+.search {
+    opacity:0%;
+    animation:
+        fadeIN 8s;
+    animation-delay:2s;
+    animation-fill-mode: forwards;
+}
+
+h2 {
+    letter-spacing:2px;
+    margin-bottom:40px;
+    text-align:center;
+    color:rgb(134, 134, 134);
+    font-weight:300;
+    font-size:16px;
+}
+
+form {
+    text-align:center;
+}
+
+.fname {
+    padding:20px 40px;
+    border-radius:10px;
+}
+
+.foodname {
+    margin-bottom:3%;
+    padding:20px 70px;
+    border-radius:10px;
+    opacity:0%;
+    animation:
+        fadeIN 8s;
+    animation-delay:2s;
+    animation-fill-mode: forwards;
+}
+
+.Submit {
+    font-size:20px;
+    letter-spacing:3px;
+    color:white;
+    font-weight:500;
+    padding:10px 50px;
+    border-radius:10px;
+    background-color:rgb(0, 72, 255);
+    border:none;
+    margin-top:4%;
+    transition:0.5s;
+}
+
+.Submit:hover {
+    scale:105%;
+    cursor:pointer;
+}
+
+.searchButton {
+    margin-left:2%;
+    cursor:pointer;
+    font-size:13px;
+    letter-spacing:0px;
+    color:white;
+    font-weight:500;
+    padding:10px 10px;
+    border-radius:10px;
+    background-color:rgb(0, 72, 255);
+    border:none;
+    opacity:0%;
+    animation:
+        fadeIN 8s;
+    animation-delay:2s;
+    animation-fill-mode: forwards;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-right:6%;
+    border-radius:40px;
+    border: 2px solid rgb(241, 241, 241);
+    margin-bottom:3%;
+}
+
+p {
+    font-weight:bold;
+    font-size:10px;
+}
+
+.myFavorites {
+    opacity:0;
+    animation:
+        fadeIN 8s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    cursor:pointer;
+    color:white;
+    background-color:rgb(0, 72, 255);
+    border-radius:30px;
+    border:none;
+    padding:10px;
+}
+
+.favorite {
+    margin-bottom:2%;
+    color:white;
+    background-color:rgb(0, 72, 255);
+    border-radius:30px;
+    border:none;
+    padding:10px;
+    transition: 0.5s;
+}
+
+.favorite:hover {
+    cursor:pointer;
+    color:black;
+    background-color:gold;
+}
+
+.recipe-title {
+    text-align:center;
+}
+
+img {
+    margin: 0 auto;
+    border-radius: 40px;
+}
+
+.recipe-results {
+    border: 2px solid rgb(241, 241, 241);
+    text-align:center;
+    opacity:0;
+    margin: 0 auto;
+    height: 300px;
+    width:600px;
+    border-radius:20px;
+    overflow-y: auto;
+    animation:
+        fadeIN 8s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes spacing {
+    from {
+        letter-spacing:10px;
+    }
+    to {
+        letter-spacing:-5px;
+    }
+}
+
+@keyframes fadeIN {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
+}

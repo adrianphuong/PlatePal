@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PlatePal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1 class = "greeting">Hello,</h1>
+    <h1 class = "name">{{name}}.</h1>
+    <form method = "POST" action = "/myfavorites">
+        <button type = "favorites" class = "myFavorites">My Favorites </button>
+    </form>
+    <h2 class ="search">Start creating your recipes:</h2>
+    <form method = "POST" action = "/hello/{{name}}">
+        <input type="text" name="search_query" class="foodname" placeholder = "Input a food...">
+        <input type="submit" value="Search" class = "searchButton">
+    </form>
+    <div class = "recipe-results">
+        {% if recipes %}
+    <ul>
+        {% for recipe in recipes %}
+        <li>
+            <h3 class="recipe-title">{{ recipe.title }}</h3>
+            {% if recipe.image %}
+            <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+            {% endif %}
+            {% for ingredient in recipe.extendedIngredients %}
+                <p>{{ingredient.original}}</p>
+            {% endfor %}
+            <button class="favorite" id="favoriteButton-{{ recipe.id }}" onclick="addToFavorites('{{ recipe.id }}', '{{ recipe.title }}', '{{ recipe.image }}')">Favorite</button>
+        </li>
+        {% endfor %}
+    </ul>
+    <!-- If no recipes are found -->
+    {% else %}
+    <p>No recipes found.</p>
+    {% endif %}
+    </div>
+</body>
+</html>
+
+<script>
+    var favorites = [];
+
+    function addToFavorites(id, title, image) {
+        var buttonId = "favoriteButton-" + id; // Get the ID of the button
+
+        var button = document.getElementById(buttonId); // Get the button element
+
+        // Create a recipe object from the provided attributes
+        var recipe = { id: id, title: title, image: image };
+
+        // Check if the recipe is already in the array, otherwise add it
+        var index = favorites.findIndex(fav => fav.id === recipe.id);
+
+        if (index > -1) {
+            // Remove the recipe from the array
+            favorites.splice(index, 1);
+            button.textContent = "Favorite";
+            button.style.backgroundColor = "rgb(0, 72, 255)"; // Remove button background color
+            console.log("Removed successfully!");
+        } else {
+            // Add the recipe to the array
+            favorites.push(recipe);
+            button.textContent = "Favorited";
+            button.style.backgroundColor = "gold"; // Change button background color to green
+            console.log("Added successfully!");
+        }
+    }
+</script>
+
+

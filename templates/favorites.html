@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>PlatePal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Favorited Recipes</h1>
+    <div class = "recipe-results">
+        <ul>
+            {% if recipes %}
+                {% for recipes in favorites %}
+                    <li>
+                        <h3>{{recipe.title}}</h3>
+                        <img src = "{{recipe.image}}" alt = "{{recipe.title}}">
+                        {% for ingredient in recipe.extendedIngredients %}
+                            <p>{{ingredient.original}}</p>
+                        {% endfor %}
+                    </li>
+                    {%endfor%}
+            {%else%}
+                <p>No favorite recipes found.</p>
+            {%endif%}
+        </ul>
+    </div>
+</body>
+</html>
